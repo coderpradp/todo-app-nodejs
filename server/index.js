@@ -28,6 +28,16 @@ const todoRoutes = require('./api/routes/todos')
 // Handling routes
 app.use('/api/todos', todoRoutes)
 
+console.log(process.env.NODE_ENV)
+// Handling production
+if (process.env.NODE_ENV === 'production') {
+  // Static folder
+  app.use(express.static(`${__dirname}/public/`))
+
+  // Handle SPA
+  app.get(/.*/, (req, res) => res.sendfile(`${__dirname}/public/index.html`))
+}
+
 const port = process.env.PORT || 5000
 
 app.listen(port, () => console.log(`Server is running on ${port}`))
