@@ -18,8 +18,15 @@ mongoose
     console.log(err)
   })
 
+// Middleware
 app.use(bodyParser.json())
 app.use(cors())
+
+// Requiring API routes
+const todoRoutes = require('./api/routes/todos')
+
+// Handling routes
+app.use('/api/todos', todoRoutes)
 
 const port = process.env.PORT || 5000
 
