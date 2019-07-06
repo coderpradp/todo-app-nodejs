@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server/index.js",
+    "start": "node server/index.js",
     "dev": "nodemon server/index.js",
-    "build": "node server/index.js"
+    "serve": "cross-env NODE_ENV=production node server/index.js"
   },
   "nodemonConfig": {
     "ignore": [
